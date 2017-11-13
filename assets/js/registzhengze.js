@@ -27,8 +27,6 @@
 	$('.container').find('input').eq(0).change(function() {
 	    if (regEmail.test($(this).val())) {
 	        success($(this), 0);
-	        
-	        
 	    } else {
 	        fail($(this), 0, '邮箱格式不正确');
 	    }
@@ -78,11 +76,21 @@
 				}
 			}
 			if(flag==3){
-				location.href = "../../changeheadimg.html";
+				location.href = "changeheadimg.html";
 			}
-	})
+        var newArr1 = {};
+        var email = $('input[class=email]').val();
+        newArr1.email = email;
 
-	
+        var pwd1 = $('input[class=pwd1]').val();
+        newArr1.pwd1 = pwd1;
+
+        var Jsonstr1 = JSON.stringify(newArr1);
+
+        // 存储json字符串
+        window.localStorage.setItem("register",Jsonstr1);
+	});
+
 });
 
 
